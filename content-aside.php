@@ -12,7 +12,7 @@
 	<div class="col-xs-12 col-sm-8">
 
 
-	<p><small>Posted on <?php the_time(); ?> in <?php the_category(); ?></small></p>
+	<p><small>Posted on <?php the_time(); ?> in <?php the_category(' '); ?></small></p>
 
 	<p><?php the_content(); ?></p>
 
