@@ -8,15 +8,27 @@
 
 <?php
 
+$currentPage=(get_query_var('paged')) ? get_query_var('paged') : 1;
+
+$args=array('posts_per_page' => 4, 'paged' => $currentPage);
+
+query_posts($args);
+
 	if(have_posts()):
 
 		while(have_posts()) : the_post(); 
 
 			get_template_part('content',get_post_format());
 
-		endwhile;
+		endwhile; ?>
 
-	endif;  
+
+<div style="text-align: center;"><?php next_posts_link('<< Older Posts'); ?>&nbsp;<?php previous_posts_link(' Newer Posts >>'); ?></div>
+
+
+<?php	endif;  
+
+wp_reset_query();
 
 ?>
 

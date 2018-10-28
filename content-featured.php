@@ -19,5 +19,5 @@
  	
 </article>
 
- 
+  	<hr style="clear: both;" />
  
