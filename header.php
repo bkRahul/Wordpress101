@@ -65,7 +65,8 @@
 	'theme_location'=>'primary',
 	'container'=>false,
 	'menu_class'=>'navbar-nav mr-auto',
-	'menu_item'=>'nav-item'	
+	'menu_item'=>'nav-item',
+  'walker'=> new Walker_Nav_Primary()	
 )); ?>
 
 <div class="search-form-container"><?php get_search_form(); ?>
