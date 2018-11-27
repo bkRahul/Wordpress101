@@ -89,13 +89,34 @@ add_action('widgets_init', 'wordpress101_widget_setup');
 /*
 ==========================
 
-	Icclude Walker File 
+	Include Walker File 
 
 ==========================
 */
 
 
 include get_template_directory().'/inc/walker.php';
+
+
+
+
+
+/*
+==========================
+
+	Head Functions 
+
+==========================
+*/
+
+//remove Wordpress version from head
+
+
+function wordpress101_remove_version() {
+	return '';
+}
+
+add_filter('the_generator', 'wordpress101_remove_version');
 
 ?>
 
