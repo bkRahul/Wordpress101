@@ -165,7 +165,7 @@ function awesome_custom_post_type (){
 		'exclude_from_search' => false
 	);
 
-	register_post_type('Testimonial',$args);
+	register_post_type('testimonials',$args);
 }
 
 add_action('init','awesome_custom_post_type');

@@ -22,7 +22,7 @@
 
 ?>
 
-<body <?php body_class($class_name) ?>>
+<body <?php body_class( $class_name ) ?>>
 
 
 <div class="container">
