@@ -2,28 +2,28 @@
 
 /* 
 
-Template Name: Custom Template
+Template Name: Custom Testimonial Template
 
 */
 ?>
 
 <?php get_header(); ?>
 
-  <h1>Wordpress101 Custom Template</h1>
+  <h1>Custom Testimonial Template</h1>
 
 <?php
 
-	if(have_posts()):
+$args = array('post_type'=>'testimonials',
+			  'post_per_page'=>3);
 
-		while(have_posts()) : the_post(); ?>
+$loop = new WP_Query($args);
 
+	if($loop->have_posts()):
 
-			<p><?php the_content(); ?></p>
+		while($loop->have_posts()) : $loop->the_post(); 
 
-			<h2><?php the_title(); ?></h2>
-			 
-
-			<hr/>
+			get_template_part('content-testimonials', get_post_format()); ?>
+ 
 <?php	
 
 		endwhile;
@@ -31,5 +31,5 @@ Template Name: Custom Template
 	endif;  
 
 ?>
-
+ 
 <?php get_footer(); ?>  
