@@ -13,7 +13,34 @@
 
 
 
-	<p><small>Posted on <?php the_time(); ?> in <?php the_category(' '); ?> || <?php the_tags(); ?> || <?php edit_post_link(); ?></small></p>
+	<p><small>Posted on <?php the_time(); ?> in <?php 
+		$terms_list = wp_get_post_terms($post->ID, 'field');
+		
+		$i=0;
+
+		foreach($terms_list as $term) {
+
+		$i++;	
+
+		if($i > 1) { echo ' ,'; }
+
+			echo $term->name.' ';
+
+		}		 ?> || <?php 
+
+		$terms_list = wp_get_post_terms($post->ID, 'services');
+
+		$i=0;
+
+		foreach($terms_list as $term) {
+
+		$i++;	
+
+		if($i > 1) { echo ' ,'; }
+
+			echo $term->name.' ';
+
+		}	 ?> || <?php edit_post_link(); ?></small></p>
  
 	</div>
 
@@ -28,7 +55,7 @@
 	<div class="col-xs-12 col-md-12 center">
 
 
-	 <?php the_content(''); ?>
+	 <?php the_content( ); ?>
 
  <?php 	endwhile; ?>
 
