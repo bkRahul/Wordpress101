@@ -220,4 +220,28 @@ function wordpress101_custom_taxonomies() {
 }
 add_action( 'init' , 'wordpress101_custom_taxonomies' );
 
+
+
+/*
+	==========================================
+	 Custom Taxonomy Type
+	==========================================
+*/
+
+
+function wordpress101_get_custom_tax_term($postID, $value) {
+
+	$terms_list = wp_get_post_terms($postID, $value);
+		
+		$i=0;
+		$output = '';
+ 		foreach($terms_list as $term) {
+ 		$i++;	
+ 		if($i > 1) { echo ' ,'; }
+ 			$output .= '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+ 		}
+
+ 		return $output;
+}
+
 ?>
