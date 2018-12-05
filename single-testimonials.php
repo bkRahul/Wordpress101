@@ -13,34 +13,13 @@
 
 
 
-	<p><small>Posted on <?php the_time(); ?> in <?php 
-		$terms_list = wp_get_post_terms($post->ID, 'field');
-		
-		$i=0;
+	<p><small>Posted on <?php the_time(); ?> in 
 
-		foreach($terms_list as $term) {
+		<?php 	echo wordpress101_get_custom_tax_term($post->ID, 'field')	 ?> || 
 
-		$i++;	
+		<?php 	echo wordpress101_get_custom_tax_term($post->ID, 'services')	 ?>
 
-		if($i > 1) { echo ' ,'; }
-
-			echo $term->name.' ';
-
-		}		 ?> || <?php 
-
-		$terms_list = wp_get_post_terms($post->ID, 'services');
-
-		$i=0;
-
-		foreach($terms_list as $term) {
-
-		$i++;	
-
-		if($i > 1) { echo ' ,'; }
-
-			echo $term->name.' ';
-
-		}	 ?> || <?php edit_post_link(); ?></small></p>
+		<?php if(current_user_can('manage_options')) {echo '|| '; edit_post_link();} ?></small></p>
  
 	</div>
 
